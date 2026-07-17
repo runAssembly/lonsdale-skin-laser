@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lonsdale Skin &amp; Laser Clinic · North Vancouver</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --teal:#1F4A50;
+  --teal-deep:#16383D;
+  --slate:#5C7A81;
+  --cream:#F7F4EF;
+  --white:#FFFFFF;
+  --stone:#CBC7BF;
+  --ink:#20262A;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Jost',sans-serif;font-weight:300;color:var(--ink);background:var(--cream);line-height:1.7;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Cormorant Garamond',serif;font-weight:500;line-height:1.1}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.eyebrow{font-size:.78rem;letter-spacing:.32em;text-transform:uppercase;font-weight:400;color:var(--slate)}
+.container{max-width:1200px;margin:0 auto;padding:0 clamp(1.2rem,4vw,3rem)}
+
+/* ---------- NAV ---------- */
+nav{position:fixed;top:0;left:0;width:100%;z-index:1000;display:flex;align-items:center;justify-content:space-between;
+  padding:1.1rem clamp(1.2rem,4vw,3rem);transition:background .4s ease,padding .4s ease,box-shadow .4s ease}
+nav.scrolled{background:rgba(22,56,61,.88);backdrop-filter:blur(12px);padding:.7rem clamp(1.2rem,4vw,3rem);box-shadow:0 4px 30px rgba(0,0,0,.15)}
+nav .logo img{height:46px;width:auto;transition:height .4s ease}
+nav.scrolled .logo img{height:38px}
+.nav-links{display:flex;align-items:center;gap:2.2rem;list-style:none}
+.nav-links a{font-size:.9rem;letter-spacing:.06em;position:relative;color:var(--ink);transition:color .3s ease}
+nav.scrolled .nav-links a{color:var(--cream)}
+.nav-links a.navlink::after{content:'';position:absolute;left:0;bottom:-5px;width:0;height:1px;background:currentColor;transition:width .35s ease}
+.nav-links a.navlink:hover::after{width:100%}
+.btn{display:inline-block;font-family:'Jost',sans-serif;font-weight:400;letter-spacing:.08em;font-size:.85rem;
+  padding:.8rem 1.6rem;border-radius:2px;cursor:pointer;border:1px solid var(--teal);background:var(--teal);color:var(--cream);
+  transition:transform .3s ease,box-shadow .3s ease,background .3s ease,color .3s ease}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(31,74,80,.3);background:var(--teal-deep)}
+.btn-nav{border-color:var(--teal);}
+nav.scrolled .btn-nav{background:var(--cream);color:var(--teal-deep);border-color:var(--cream)}
+nav.scrolled .btn-nav:hover{background:var(--slate);color:var(--white);border-color:var(--slate)}
+.btn-outline{background:transparent;color:var(--teal-deep);border:1px solid var(--teal)}
+.btn-outline:hover{background:var(--teal);color:var(--cream)}
+.ig-link{font-size:.9rem;letter-spacing:.06em}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:6px}
+.hamburger span{width:26px;height:2px;background:var(--ink);transition:.3s}
+nav.scrolled .hamburger span{background:var(--cream)}
+
+/* ---------- HERO (split, light register) ---------- */
+.hero{min-height:100vh;display:grid;grid-template-columns:1.05fr 1fr;position:relative}
+.hero-text{background:var(--cream);display:flex;flex-direction:column;justify-content:flex-start;
+  padding:clamp(7rem,14vh,10rem) clamp(1.5rem,5vw,4.5rem) 3rem}
+.hero-img{background:url('img/lonsdale-skin-laser-hero.jpg') center/cover no-repeat;min-height:60vh}
+.hero-eyebrow{margin-bottom:1.4rem}
+.hero h1{font-size:clamp(2.8rem,6vw,4.8rem);color:var(--teal-deep);margin-bottom:1.4rem;max-width:14ch}
+.hero .sub{font-size:clamp(1rem,1.4vw,1.15rem);max-width:46ch;margin-bottom:1.4rem;color:var(--ink)}
+.hero .tag-line{font-size:.85rem;letter-spacing:.18em;text-transform:uppercase;color:var(--slate);margin-bottom:2.2rem}
+.hero-btns{display:flex;flex-wrap:wrap;gap:1rem;margin-bottom:2rem}
+.hero-phone{font-size:.95rem;letter-spacing:.05em}
+.hero-phone a{color:var(--teal);font-weight:400}
+
+/* ---------- SECTIONS ---------- */
+section{padding:clamp(4rem,9vw,7.5rem) 0}
+.section-head{max-width:640px;margin-bottom:3rem}
+.section-head .eyebrow{display:block;margin-bottom:1rem}
+.section-head h2{font-size:clamp(2rem,4.2vw,3.2rem);color:var(--teal-deep)}
+
+/* ---------- ABOUT ---------- */
+.about{background:var(--white)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4.5rem);align-items:center}
+.about-visual{position:relative;padding:14px;border:1px solid var(--stone)}
+.about-visual .frame{overflow:hidden}
+.about-visual img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease}
+.about-visual:hover img{transform:scale(1.06)}
+.about-chip{position:absolute;bottom:26px;left:26px;background:rgba(22,56,61,.9);color:var(--cream);
+  padding:.55rem 1.1rem;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase}
+.about-text h2{font-size:clamp(1.9rem,3.6vw,2.8rem);color:var(--teal-deep);margin:.8rem 0 1.4rem}
+.about-text p{margin-bottom:1.1rem;color:var(--ink)}
+.accent-line{border-left:2px solid var(--slate);padding-left:1.2rem;font-style:italic;
+  font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--teal);margin-top:1.6rem}
+
+/* ---------- TREATMENTS ---------- */
+.treatments{background:var(--cream)}
+.treat-group{margin-bottom:3rem}
+.treat-group h3{font-size:1.6rem;color:var(--teal);margin-bottom:1.3rem;letter-spacing:.02em;
+  padding-bottom:.6rem;border-bottom:1px solid var(--stone)}
+.treat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1.2rem}
+.treat-card{background:var(--white);border:1px solid var(--stone);padding:1.6rem 1.5rem;cursor:pointer;
+  transition:transform .35s ease,box-shadow .35s ease,border-color .35s ease;position:relative}
+.treat-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(31,74,80,.14);border-color:var(--slate)}
+.treat-card h4{font-size:1.4rem;color:var(--teal-deep);margin-bottom:.5rem}
+.treat-card p{font-size:.88rem;color:var(--ink);opacity:.8}
+.treat-card .more{display:inline-block;margin-top:1rem;font-size:.75rem;letter-spacing:.2em;text-transform:uppercase;color:var(--slate);transition:color .3s ease}
+.treat-card:hover .more{color:var(--teal)}
+
+/* ---------- TEAM ---------- */
+.team{background:var(--white)}
+.team-intro{max-width:560px;margin-bottom:3rem;color:var(--ink)}
+.team-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.6rem}
+.team-card{background:var(--cream);border:1px solid var(--stone);padding:2.4rem 1.6rem;text-align:center;
+  transition:transform .35s ease,box-shadow .35s ease}
+.team-card:hover{transform:translateY(-6px);box-shadow:0 16px 36px rgba(31,74,80,.12)}
+.medallion{width:84px;height:84px;border-radius:50%;border:1.5px solid var(--slate);display:flex;align-items:center;
+  justify-content:center;margin:0 auto 1.3rem;font-family:'Cormorant Garamond',serif;font-size:1.7rem;color:var(--teal-deep);
+  background:var(--white);letter-spacing:.05em}
+.team-card h4{font-size:1.4rem;color:var(--teal-deep);margin-bottom:.4rem}
+.team-card p{font-size:.82rem;color:var(--slate);letter-spacing:.03em}
+
+/* ---------- CONTACT ---------- */
+.contact{background:var(--teal-deep);color:var(--cream)}
+.contact .eyebrow{color:var(--slate)}
+.contact h2{color:var(--cream)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(2rem,5vw,4rem);align-items:stretch}
+.contact-info p{margin-bottom:1rem;font-size:1rem}
+.contact-info a{color:var(--cream);border-bottom:1px solid rgba(247,244,239,.3);transition:border-color .3s}
+.contact-info a:hover{border-color:var(--cream)}
+.contact-info .label{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--slate);display:block;margin-bottom:.2rem}
+.contact-info .block{margin-bottom:1.8rem}
+.map-wrap{overflow:hidden;border:1px solid rgba(203,199,191,.3);min-height:340px}
+.map-wrap iframe{width:100%;height:100%;min-height:340px;border:0;filter:grayscale(.2)}
+.cta-mid{margin-top:2.4rem}
+
+/* ---------- FINAL CTA ---------- */
+.final-cta{background:var(--white);text-align:center}
+.final-cta h2{font-size:clamp(2.2rem,5vw,3.6rem);color:var(--teal-deep);max-width:18ch;margin:0 auto 1.5rem}
+.final-cta p{max-width:44ch;margin:0 auto 2rem;color:var(--ink)}
+
+/* ---------- FOOTER ---------- */
+footer{background:var(--teal-deep);color:var(--cream);padding:3.5rem 0 2rem}
+.footer-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:2.5rem;align-items:start;margin-bottom:2.5rem}
+footer .logo img{height:52px;margin-bottom:1rem}
+footer .tagline{font-family:'Cormorant Garamond',serif;font-size:1.25rem;color:var(--stone);max-width:30ch}
+.footer-col h5{font-family:'Jost',sans-serif;font-weight:400;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--slate);margin-bottom:1rem}
+.footer-col a,.footer-col span{display:block;font-size:.9rem;margin-bottom:.6rem;color:var(--cream);opacity:.85;transition:opacity .3s,padding-left .3s}
+.footer-col a:hover{opacity:1;padding-left:4px}
+.footer-bottom{border-top:1px solid rgba(203,199,191,.2);padding-top:1.6rem;font-size:.78rem;color:var(--stone);letter-spacing:.05em;text-align:center}
+
+/* ---------- MODALS ---------- */
+.modal-overlay{position:fixed;inset:0;background:rgba(22,56,61,.55);backdrop-filter:blur(4px);z-index:2000;
+  display:none;align-items:center;justify-content:center;padding:1.2rem;opacity:0;transition:opacity .35s ease}
+.modal-overlay.open{display:flex;opacity:1}
+.modal{background:var(--cream);max-width:620px;width:100%;max-height:88vh;overflow-y:auto;padding:clamp(1.8rem,4vw,3rem);
+  position:relative;transform:translateY(20px);transition:transform .4s ease}
+.modal-overlay.open .modal{transform:translateY(0)}
+.modal-close{position:absolute;top:1.1rem;right:1.2rem;background:none;border:none;font-size:1.8rem;cursor:pointer;color:var(--teal);line-height:1;transition:transform .3s}
+.modal-close:hover{transform:rotate(90deg)}
+.modal .eyebrow{display:block;margin-bottom:.7rem}
+.modal h3{font-size:clamp(1.8rem,4vw,2.4rem);color:var(--teal-deep);margin-bottom:1.1rem}
+.modal p{margin-bottom:1.2rem;font-size:.98rem}
+.modal h4{font-size:1.3rem;color:var(--teal);margin:1.4rem 0 .7rem}
+.modal ul{list-style:none;margin-bottom:1.4rem}
+.modal ul li{padding-left:1.4rem;position:relative;margin-bottom:.5rem;font-size:.95rem}
+.modal ul li::before{content:'';position:absolute;left:0;top:.7em;width:7px;height:7px;background:var(--slate);border-radius:50%}
+.modal .btn{margin-top:.5rem}
+
+/* Booking form */
+.form-group{margin-bottom:1.1rem}
+.form-group label{display:block;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);margin-bottom:.4rem}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:.8rem .9rem;border:1px solid var(--stone);
+  background:var(--white);font-family:'Jost',sans-serif;font-size:.95rem;color:var(--ink);border-radius:2px;transition:border-color .3s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:none;border-color:var(--teal)}
+.form-group textarea{resize:vertical;min-height:90px}
+.form-success{display:none;padding:1.5rem;background:rgba(92,122,129,.12);border-left:3px solid var(--teal);
+  font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:var(--teal-deep)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@media (max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .hero-img{order:-1;min-height:38vh}
+  .hero-text{padding-top:6rem}
+  .about-grid,.contact-grid,.footer-grid{grid-template-columns:1fr}
+  .footer-grid{gap:2rem}
+  .nav-links{position:fixed;top:0;right:0;height:100vh;width:75%;max-width:320px;background:var(--teal-deep);
+    flex-direction:column;justify-content:center;gap:1.8rem;transform:translateX(100%);transition:transform .4s ease;padding:2rem}
+  .nav-links.open{transform:translateX(0)}
+  .nav-links a{color:var(--cream)}
+  .hamburger{display:flex;z-index:1100}
+}
+@media (prefers-reduced-motion:reduce){
+  *{transition:none!important;animation:none!important}
+  .reveal{opacity:1;transform:none}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="logo"><img src="img/lonsdale-skin-laser-logo.png" alt="Lonsdale Skin &amp; Laser Clinic"></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about" class="navlink">About</a></li>
+    <li><a href="#treatments" class="navlink">Treatments</a></li>
+    <li><a href="#team" class="navlink">Team</a></li>
+    <li><a href="#contact" class="navlink">Contact</a></li>
+    <li><a href="https://www.instagram.com/lonsdaleskin/" target="_blank" rel="noopener" class="navlink ig-link">Instagram</a></li>
+    <li><a class="btn btn-nav" onclick="openBooking()">Book Now</a></li>
+  </ul>
+  <button class="hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="hero">
+  <div class="hero-text">
+    <span class="eyebrow hero-eyebrow">North Vancouver · Skin &amp; Laser Clinic</span>
+    <h1>Confident skin, expertly cared for</h1>
+    <p class="sub">North Vancouver's dedicated centre for advanced aesthetic procedures and laser treatments — state-of-the-art technology and honest, physician-led medical advice.</p>
+    <p class="tag-line">Laser · IPL · RF Microneedling · Injectables · Body Contouring</p>
+    <div class="hero-btns">
+      <a class="btn" onclick="openBooking()">Book a Consultation</a>
+      <a class="btn btn-outline" href="#treatments">Explore Treatments</a>
+    </div>
+    <p class="hero-phone">Call us · <a href="tel:6047700792">604-770-0792</a></p>
+  </div>
+  <div class="hero-img" role="img" aria-label="Lonsdale Skin &amp; Laser Clinic"></div>
+</header>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="frame"><img src="img/lonsdale-skin-laser-about.jpg" alt="Inside Lonsdale Skin &amp; Laser Clinic"></div>
+        <span class="about-chip">Physician-Led Care</span>
+      </div>
+      <div class="about-text reveal">
+        <span class="eyebrow">About the Clinic</span>
+        <h2>Physician-led, technology-forward skin care</h2>
+        <p>Lonsdale Skin &amp; Laser Clinic is North Vancouver's dedicated centre for advanced aesthetic procedures and laser treatments. We pair cutting-edge technology and expert knowledge with unbiased, physician-led medical advice — building custom-made treatment packages tailored to you following a complimentary consultation, with no commitment required.</p>
+        <p>Led by board-certified aesthetic physician Dr. Willem Gouws, our approach centres on open communication and informed decisions, so every treatment is chosen with honest guidance and your goals in mind. From laser hair removal and IPL photofacials to RF microneedling, injectables, thread lifts and non-surgical body contouring, we help you look and feel your best.</p>
+        <p class="accent-line">Complimentary consultations — expert advice with no pressure and no commitment.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TREATMENTS -->
+<section class="treatments" id="treatments">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Our Treatments</span>
+      <h2>Advanced care, tailored to you</h2>
+    </div>
+    <div id="treatContainer"></div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section class="team" id="team">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Our Team</span>
+      <h2>The people behind your care</h2>
+      <p class="team-intro">A physician-led team of nurses, laser technicians and aestheticians dedicated to safe, expert, honest care.</p>
+    </div>
+    <div class="team-grid">
+      <div class="team-card reveal"><div class="medallion">WG</div><h4>Dr. Willem J. Gouws</h4><p>MD, CCFP, MCFP (FPA) · Board-Certified Aesthetic Physician</p></div>
+      <div class="team-card reveal"><div class="medallion">VP</div><h4>Valencia M. du Plessis</h4><p>Licensed Practical Nurse · Certified Master CoolSculpt Technician</p></div>
+      <div class="team-card reveal"><div class="medallion">ZD</div><h4>Zohreh Damani</h4><p>Certified Laser Technician &amp; Aesthetician</p></div>
+      <div class="team-card reveal"><div class="medallion">ZP</div><h4>Zyra Zadora R. Panakkal</h4><p>Clinic Manager · Certified Laser &amp; RF Microneedling Technician</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">Visit Us</span>
+      <h2>Contact &amp; location</h2>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <div class="block"><span class="label">Address</span>1777 Lonsdale Ave,<br>North Vancouver, BC</div>
+        <div class="block"><span class="label">Phone</span><a href="tel:6047700792">604-770-0792</a></div>
+        <div class="block"><span class="label">Email</span><a href="mailto:info@lonsdalelaser.com">info@lonsdalelaser.com</a></div>
+        <div class="block"><span class="label">Instagram</span><a href="https://www.instagram.com/lonsdaleskin/" target="_blank" rel="noopener">@lonsdaleskin</a></div>
+        <a class="btn cta-mid" onclick="openBooking()">Book a Consultation</a>
+      </div>
+      <div class="map-wrap reveal">
+        <iframe src="https://www.google.com/maps?q=1777%20Lonsdale%20Ave%2C%20North%20Vancouver%2C%20BC&output=embed" loading="lazy" title="Map to Lonsdale Skin &amp; Laser Clinic"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="container reveal">
+    <h2>Ready to begin your skin journey?</h2>
+    <p>Start with a complimentary consultation — honest, physician-led advice with no pressure and no commitment.</p>
+    <a class="btn" onclick="openBooking()">Book Now</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="logo"><img src="img/lonsdale-skin-laser-logo.png" alt="Lonsdale Skin &amp; Laser Clinic"></div>
+        <p class="tagline">Confident skin, expertly cared for — North Vancouver's dedicated skin &amp; laser clinic.</p>
+      </div>
+      <div class="footer-col">
+        <h5>Explore</h5>
+        <a href="#about">About</a>
+        <a href="#treatments">Treatments</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+        <a onclick="openBooking()" style="cursor:pointer">Book Now</a>
+      </div>
+      <div class="footer-col">
+        <h5>Contact</h5>
+        <span>1777 Lonsdale Ave, North Vancouver, BC</span>
+        <a href="tel:6047700792">604-770-0792</a>
+        <a href="mailto:info@lonsdalelaser.com">info@lonsdalelaser.com</a>
+        <a href="https://www.instagram.com/lonsdaleskin/" target="_blank" rel="noopener">@lonsdaleskin</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2026 Lonsdale Skin &amp; Laser Clinic. All rights reserved.</div>
+  </div>
+</footer>
+
+<!-- TREATMENT MODAL -->
+<div class="modal-overlay" id="treatModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('treatModal')">&times;</button>
+    <span class="eyebrow" id="tmGroup"></span>
+    <h3 id="tmTitle"></h3>
+    <p id="tmOverview"></p>
+    <h4 id="tmHowLabel">How it works</h4>
+    <p id="tmHow"></p>
+    <h4>Benefits</h4>
+    <ul id="tmBenefits"></ul>
+    <a class="btn" onclick="closeModal('treatModal');openBooking(document.getElementById('tmTitle').textContent)">Book this treatment</a>
+  </div>
+</div>
+
+<!-- BOOKING MODAL -->
+<div class="modal-overlay" id="bookModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('bookModal')">&times;</button>
+    <span class="eyebrow">Book an Appointment</span>
+    <h3>Request your consultation</h3>
+    <form id="bookForm">
+      <div class="form-group"><label>Name</label><input type="text" required></div>
+      <div class="form-group"><label>Email</label><input type="email" required></div>
+      <div class="form-group"><label>Phone</label><input type="tel" required></div>
+      <div class="form-group"><label>Treatment of Interest</label>
+        <select id="bookTreatment"><option value="">Select a treatment…</option></select>
+      </div>
+      <div class="form-group"><label>Message</label><textarea placeholder="Tell us a little about your goals…"></textarea></div>
+      <button type="submit" class="btn">Submit Request</button>
+    </form>
+    <div class="form-success" id="bookSuccess">Thank you — we will be in touch shortly to confirm your appointment.</div>
+  </div>
+</div>
+
+<script>
+/* ---------- TREATMENT DATA ---------- */
+const treatments = {
+  "Laser &amp; Light":[
+    {t:"Permanent Laser Hair Removal",o:"Advanced diode laser technology removes unwanted hair from all skin types and tones — including tanned skin. Because the machine delivers three wavelengths that reach several layers of skin, hair is targeted at multiple depths for safe, comfortable, effective results across every complexion.",
+     hl:"How it works",h:"The diode laser directs energy to the hair follicle while protecting the surrounding skin. Its three combined wavelengths reach hairs at different depths, so a course of treatments progressively reduces regrowth for lasting smoothness.",
+     b:["Safe for all skin types and tones, including tanned skin","Multi-depth targeting for thorough, even results","Comfortable, effective and long-lasting","Suitable for face and body"]},
+    {t:"IPL Photofacial",o:"Intense Pulsed Light combats brownish spots, redness, dilated capillaries and sun damage for a clearer, more even complexion. IPL breaks down pigment, collapses tiny dilated veins to calm rosacea and facial redness, and stimulates collagen and elastin for fresh, revitalised, youthful skin.",
+     hl:"How it works",h:"Pulses of broad-spectrum light are absorbed by pigment and blood vessels near the surface. Pigmented spots break down and clear, while tiny dilated veins collapse — and the light also encourages fresh collagen and elastin for a smoother finish.",
+     b:["Fades sun spots and UV discolouration","Calms rosacea and facial redness","Targets dilated capillaries","Boosts collagen for youthful, revitalised skin"]},
+    {t:"Pixel Laser Rejuvenation",o:"As we age, cells produce less collagen and elastin, leaving larger pores, sagging skin and lost volume. The Pixel laser gently heats the skin to create controlled micro-inflammation that stimulates new collagen — improving tightness, tone and texture over a series of treatments.",
+     hl:"What to expect",h:"The laser gently heats the skin to trigger a controlled, natural healing response. Over a series of sessions your skin remodels its own collagen, refining pores and firming and smoothing the surface.",
+     b:["Refines enlarged pores","Improves skin tightness and tone","Smooths texture and restores volume","Progressive, natural-looking results"]},
+    {t:"Laser Vein Removal",o:"A precise, non-invasive laser treatment to clear unwanted spider veins and small vascular irregularities on the face and body, restoring a smoother, clearer, more even-looking complexion.",
+     hl:"How it works",h:"Focused laser energy is absorbed by the targeted vessel, causing it to collapse and gradually fade from view — with the surrounding skin left untouched.",
+     b:["Non-invasive and precise","Clears spider veins and small vascular irregularities","Treats face and body","Smoother, more even complexion"]},
+    {t:"Laser Nail Fungus Treatment",o:"Onychomycosis is a fungal infection of the toenails and fingernails that causes thickening, discolouration and splitting. Our laser treatment targets the fungus directly and safely — a clean, medication-free path back to healthier, clearer nails.",
+     hl:"How it works",h:"The laser passes safely through the nail to heat and destroy the fungus at its source, without the systemic medications traditionally used for nail infections.",
+     b:["Targets the fungus directly","Medication-free approach","Safe and clean","Healthier, clearer nails over time"]}
+  ],
+  "Skin Rejuvenation":[
+    {t:"RF Microneedling",o:"Radiofrequency microneedling combines fine needling with deep radiofrequency heat to lift the neck and jawline, soften wrinkles and tighten skin. It remodels collagen from within for firmer, smoother, more youthful-looking skin with minimal downtime.",
+     hl:"How it works",h:"Fine microneedles deliver radiofrequency energy into the deeper layers of skin, creating controlled heat that stimulates collagen and elastin. The result is gradual tightening and lifting with minimal downtime.",
+     b:["Lifts the neck and jawline","Softens wrinkles and fine lines","Tightens and firms skin","Minimal downtime"]},
+    {t:"ProCell Microchanneling",o:"ProCell Microchanneling uses microfilaments to create hundreds of thousands of microchannels in the upper layers of skin, triggering your body's natural healing and collagen production. The average treatment takes just 45 minutes, and most patients see significant improvement after a single session — thicker, firmer, more resilient skin over time.",
+     hl:"What to expect",h:"Microfilaments create hundreds of thousands of tiny microchannels in the upper skin, kick-starting your body's own healing process, cell turnover and collagen production. Treatments are performed by our expert esthetician in the comfort of our private medical spa.",
+     b:["Fast — about 45 minutes per treatment","Performed safely by an expert esthetician","Most patients see improvement after one session","Thicker, firmer, more resilient skin over time"]},
+    {t:"Custom Facials",o:"Medical-grade facials tailored to your skin after an expert assessment — cleansing, resurfacing and nourishing treatments designed to restore a healthy, radiant glow and complement your longer-term treatment plan.",
+     hl:"What to expect",h:"We begin with a skin assessment, then customise each step — cleansing, resurfacing and nourishing — to your needs. Facials work beautifully alongside your other treatments as part of a longer-term plan.",
+     b:["Tailored to your skin after assessment","Medical-grade cleansing and resurfacing","Restores a healthy, radiant glow","Complements your treatment plan"]},
+    {t:"AI-Assisted Facial Skin Analysis",o:"A complimentary skin analysis using sophisticated illumination technology that reveals a wide range of skin conditions — including pigmentation and vascular concerns — invisible to the naked eye. Together we examine your skin in detail and map the most effective treatment plan for restoring its health.",
+     hl:"What to expect",h:"Using advanced illumination technology, we capture and examine conditions beneath the surface that the eye can't see. Together we review the findings and build the most effective plan for your skin.",
+     b:["Complimentary and non-invasive","Reveals pigmentation and vascular concerns","Detailed, technology-driven insight","Maps your most effective treatment plan"]}
+  ],
+  "Injectables &amp; Regenerative":[
+    {t:"Botox &amp; Dermal Fillers",o:"Physician-administered neuromodulators soften expression lines and wrinkles, while injectable dermal fillers restore lost volume and refine facial balance — natural, conservative results guided by honest, expert advice.",
+     hl:"What to expect",h:"After discussing your goals, our physician administers treatment conservatively — relaxing the muscles that cause expression lines and, where helpful, restoring volume and balance with dermal filler. The aim is always a refreshed, natural look.",
+     b:["Physician-administered for safety","Softens expression lines and wrinkles","Restores lost volume and facial balance","Natural, conservative results"]},
+    {t:"PRP Facial Injection",o:"A natural treatment that reintroduces your own platelet-rich plasma — rich in growth factors — into the skin to improve texture and tone, reduce wrinkles and encourage new collagen. It can also support hair restoration.",
+     hl:"How it works",h:"A small sample of blood is drawn as in a routine test, then centrifuged so the platelet-rich plasma separates in about ten minutes. This concentrate of your own growth factors is then reintroduced to stimulate healing and collagen at a cellular level.",
+     b:["Uses your body's own growth factors","Improves texture and tone","Reduces wrinkles and encourages collagen","Can support hair restoration"]},
+    {t:"Evangeline PRF Injection",o:"Evangeline Platelet-Rich Fibrin Matrix (PRFM) uses a next-generation concentrate of your own blood to address volume loss and support hair restoration — a natural, regenerative approach that releases growth factors gradually for longer-lasting rejuvenation.",
+     hl:"How it works",h:"PRF is prepared from your own blood and forms a fibrin matrix that holds and releases growth factors slowly over time — extending the regenerative effect compared with standard preparations.",
+     b:["Uses your own blood — natural and regenerative","Addresses volume loss","Supports hair restoration","Gradual growth-factor release for lasting results"]},
+    {t:"Instalift Thread Lift",o:"A minimally invasive, non-surgical facelift that uses temporary medical-grade sutures to lift and sculpt the face — jowls, brow, under-eye and forehead. No general anaesthetic, minimal recovery, and subtle, natural lift; ideal for early signs of ageing in the late 30s to early 50s.",
+     hl:"What to expect",h:"Temporary, medical-grade Instalift sutures are placed to gently draw the skin taut and sculpt the contours of the face. There's no general anaesthetic and recovery is minimal — it can even be done on a lunch break. You can target one area or several.",
+     b:["Minimally invasive — no general anaesthetic","Lifts jowls, brow, under-eye and forehead","Subtle, natural-looking lift","Ideal for early signs of ageing (late 30s–early 50s)"]}
+  ],
+  "Body Contouring":[
+    {t:"HIFU Face &amp; Body Lifting",o:"HIFU (High-Intensity Focused Ultrasound) is a non-invasive, clinically proven treatment for face lifting and skin tightening. It targets the deep foundation layer of the skin for effective results without surgery — a great alternative for those not ready for a facelift, and usable across the face, neck and body.",
+     hl:"How it works",h:"Focused ultrasound energy reaches the deep foundation layer of the skin without disturbing the surface, prompting a lifting and tightening response. While it doesn't replicate surgery, it's an excellent alternative — or a way to extend cosmetic-surgery results.",
+     b:["Non-invasive and clinically proven","Lifts and tightens without surgery","Targets the deep foundation layer","Works on face, neck and body"]},
+    {t:"HI-EMT Body Sculpting",o:"A revolutionary non-invasive treatment that pairs high-intensity electromagnetic energy with radiofrequency to burn fat and build muscle at the same time. HI-EMT destroys fat cells while simultaneously strengthening muscle mass for impressive body-contouring results — no surgery, no downtime.",
+     hl:"How it works",h:"High-intensity electromagnetic energy triggers powerful muscle contractions to build and strengthen muscle, while paired radiofrequency stimulation targets and destroys fat cells — sculpting and toning in a single session.",
+     b:["Burns fat and builds muscle simultaneously","Non-invasive — no surgery, no downtime","Strengthens and tones muscle mass","Impressive body-contouring results"]},
+    {t:"AccuTite Contouring",o:"A minimally invasive procedure that shapes, contracts and contours skin and stubborn fat on the face and body — without large incisions or the downtime of traditional surgery. Remarkable, natural-looking definition with a precise, targeted approach.",
+     hl:"What to expect",h:"AccuTite delivers precision contouring through a minimally invasive approach — refining smaller, delicate areas of the face and body with far less disruption than traditional surgery.",
+     b:["Minimally invasive precision contouring","Treats face and body","No large incisions","Natural-looking definition, less downtime"]},
+    {t:"Lipo-Dissolve",o:"Unlike procedures that only reduce the appearance of fat, Lipo-Dissolve (PCDC) permanently dissolves fat cells. A small injection targets troublesome areas on the face, hips, back and abdomen; the fat cells absorb the solution, break down and are cleared by the body naturally over a few weeks — no surgery, no recovery time.",
+     hl:"How it works",h:"A small injection of the PCDC (phosphatidylcholine deoxycholate) solution is placed into the targeted area. The fat cells absorb it and undergo a mild inflammatory response, then break down and are cleared naturally by the body over several weeks. Some areas may need a few treatments spaced about six weeks apart.",
+     b:["Permanently dissolves fat cells","Targets face, hips, back and abdomen","Minimally invasive — no surgery or recovery time","Impressive, natural fat reduction over weeks"]},
+    {t:"Vasculyse Skin Tag Removal",o:"Vasculyse 2G RF thermocoagulation is a non-invasive, safe, quick and effective treatment for skin irregularities such as milia (whiteheads), skin tags and small vascular lesions — clearing minor blemishes for smoother, clearer skin in minutes.",
+     hl:"How it works",h:"Precise radiofrequency thermocoagulation treats the targeted irregularity directly, clearing it quickly with minimal disruption to the surrounding skin.",
+     b:["Non-invasive and quick","Treats milia, skin tags and small vascular lesions","Safe and effective","Smoother, clearer skin in minutes"]}
+  ]
+};
+
+/* ---------- BUILD TREATMENTS ---------- */
+const container = document.getElementById('treatContainer');
+const select = document.getElementById('bookTreatment');
+let allTreatments = [];
+for(const group in treatments){
+  const g = document.createElement('div');
+  g.className='treat-group reveal';
+  g.innerHTML = `<h3>${group}</h3>`;
+  const grid = document.createElement('div');
+  grid.className='treat-grid';
+  treatments[group].forEach(item=>{
+    allTreatments.push(item.t);
+    const card = document.createElement('div');
+    card.className='treat-card';
+    card.innerHTML = `<h4>${item.t}</h4><p>${item.o.slice(0,110)}…</p><span class="more">Learn more →</span>`;
+    card.addEventListener('click',()=>openTreat(group,item));
+    grid.appendChild(card);
+  });
+  g.appendChild(grid);
+  container.appendChild(g);
+}
+/* dropdown */
+allTreatments.forEach(t=>{
+  const cleaned = t.replace(/&amp;/g,'&');
+  const o=document.createElement('option'); o.value=cleaned; o.textContent=cleaned; select.appendChild(o);
+});
+
+/* ---------- MODAL LOGIC ---------- */
+function openTreat(group,item){
+  document.getElementById('tmGroup').innerHTML = group;
+  document.getElementById('tmTitle').innerHTML = item.t;
+  document.getElementById('tmOverview').innerHTML = item.o;
+  document.getElementById('tmHowLabel').textContent = item.hl;
+  document.getElementById('tmHow').innerHTML = item.h;
+  const ul=document.getElementById('tmBenefits'); ul.innerHTML='';
+  item.b.forEach(b=>{const li=document.createElement('li');li.textContent=b;ul.appendChild(li);});
+  openModal('treatModal');
+}
+function openBooking(preset){
+  if(preset){ preset=preset.replace(/&amp;/g,'&'); select.value=preset; }
+  document.getElementById('bookForm').style.display='block';
+  document.getElementById('bookSuccess').style.display='none';
+  openModal('bookModal');
+}
+function openModal(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden';}
+function closeModal(id){document.getElementById(id).classList.remove('open');document.body.style.overflow='';}
+document.querySelectorAll('.modal-overlay').forEach(o=>{
+  o.addEventListener('click',e=>{if(e.target===o)closeModal(o.id);});
+});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.modal-overlay.open').forEach(o=>closeModal(o.id));});
+
+/* ---------- BOOKING FORM ---------- */
+document.getElementById('bookForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  this.style.display='none';
+  document.getElementById('bookSuccess').style.display='block';
+});
+
+/* ---------- NAV ---------- */
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>60);});
+const hamburger=document.getElementById('hamburger');
+const navLinks=document.getElementById('navLinks');
+hamburger.addEventListener('click',()=>navLinks.classList.toggle('open'));
+navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
+
+/* ---------- REVEAL ---------- */
+const io=new IntersectionObserver((entries)=>{
+  entries.forEach((en,i)=>{
+    if(en.isIntersecting){
+      setTimeout(()=>en.target.classList.add('visible'), (i%4)*90);
+      io.unobserve(en.target);
+    }
+  });
+},{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+<!-- ===== POLISH LAYER (inject before </body>) — custom cursor + refined hover/motion ===== -->
+<style id="polish-layer">
+@media (hover:hover) and (pointer:fine){
+  /* custom cursor: a fast dot + a lagging ring, blend against any background */
+  * { cursor: none !important; }
+  #pl-dot,#pl-ring{position:fixed;top:0;left:0;z-index:2147483647;pointer-events:none;border-radius:50%;
+    mix-blend-mode:difference;will-change:transform;transform:translate3d(-50%,-50%,0);}
+  #pl-dot{width:7px;height:7px;background:#fff;transition:width .25s ease,height .25s ease,opacity .3s;}
+  #pl-ring{width:34px;height:34px;border:1px solid rgba(255,255,255,.85);
+    transition:width .3s cubic-bezier(.16,1,.3,1),height .3s cubic-bezier(.16,1,.3,1),opacity .3s,background .3s;}
+  #pl-ring.hot{width:56px;height:56px;background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.95);}
+  #pl-dot.hot{width:0;height:0;opacity:0;}
+  #pl-ring.down{width:26px;height:26px;}
+}
+/* refined hover motion — additive, does not hide content */
+a,button,.btn{transition:color .35s ease,background-color .35s ease,border-color .35s ease,transform .35s cubic-bezier(.16,1,.3,1),box-shadow .45s ease;}
+.btn:hover{transform:translateY(-2px);}
+/* card lift: target common card patterns from the recipe */
+[class*="card"],[class*="Card"],.member,.t-card,.svc-cat,.review,.testi-card,.blog-card,.rcard,.group .item,.tile{
+  transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .55s ease,border-color .45s ease !important;}
+[class*="card"]:hover,[class*="Card"]:hover,.member:hover,.t-card:hover,.svc-cat:hover,.review:hover,.testi-card:hover,.blog-card:hover,.rcard:hover,.tile:hover{
+  transform:translateY(-6px) !important;box-shadow:0 22px 50px rgba(20,18,15,.13) !important;}
+/* image zoom inside any overflow-clipped container */
+[class*="card"] img,[class*="Card"] img,.member img,.ph img,.about-mark img,.about-visual img,.about-block img,.rph img,.hero-img,figure img{
+  transition:transform .8s cubic-bezier(.16,1,.3,1) !important;}
+[class*="card"]:hover img,[class*="Card"]:hover img,.member:hover img,.ph:hover img,figure:hover img{transform:scale(1.05) !important;}
+/* animated underline on nav links */
+nav a:not(.btn):not(.logo)::after,.nav a:not(.btn):not(.logo)::after,.navlinks a::after{
+  content:"";position:absolute;left:0;bottom:-3px;width:0;height:1px;background:currentColor;opacity:.6;transition:width .4s cubic-bezier(.16,1,.3,1);}
+nav a:not(.btn):not(.logo),.nav a:not(.btn):not(.logo),.navlinks a{position:relative;}
+nav a:not(.btn):not(.logo):hover::after,.nav a:not(.btn):not(.logo):hover::after,.navlinks a:hover::after{width:100%;}
+@media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important;} #pl-dot,#pl-ring{display:none !important;} *{cursor:auto !important;}}
+</style>
+<script id="polish-script">
+(function(){
+  if(!window.matchMedia||!window.matchMedia("(hover:hover) and (pointer:fine)").matches) return;
+  if(window.matchMedia("(prefers-reduced-motion:reduce)").matches) return;
+  var dot=document.createElement("div"),ring=document.createElement("div");
+  dot.id="pl-dot";ring.id="pl-ring";document.body.appendChild(dot);document.body.appendChild(ring);
+  var mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
+  addEventListener("mousemove",function(e){mx=e.clientX;my=e.clientY;dot.style.transform="translate3d("+(mx-3.5)+"px,"+(my-3.5)+"px,0)";},{passive:true});
+  (function loop(){rx+=(mx-rx)*.18;ry+=(my-ry)*.18;ring.style.transform="translate3d("+(rx-17)+"px,"+(ry-17)+"px,0)";requestAnimationFrame(loop);})();
+  var hot="a,button,.btn,input,textarea,select,[onclick],[role=button],label";
+  addEventListener("mouseover",function(e){ if(e.target.closest(hot)){ring.classList.add("hot");dot.classList.add("hot");}});
+  addEventListener("mouseout",function(e){ if(e.target.closest(hot)){ring.classList.remove("hot");dot.classList.remove("hot");}});
+  addEventListener("mousedown",function(){ring.classList.add("down");});
+  addEventListener("mouseup",function(){ring.classList.remove("down");});
+  addEventListener("mouseleave",function(){dot.style.opacity=0;ring.style.opacity=0;});
+  addEventListener("mouseenter",function(){dot.style.opacity=1;ring.style.opacity=1;});
+})();
+</script>
+<!-- ===== END POLISH LAYER ===== -->
+
+</body>
+</html>
